@@ -1,5 +1,8 @@
 # Ranch_Games
 
+I SWEAR TO GOD. BEFORE YOU EVER COMMIT ANYTHING YOU BETTER FUCKING PULL FIRST. REPEAT WITH ME: PULL - COMMIT - PUSH - PROFIT. IF YOU EVER DO ANY OTHER ORDER I WILL KILL YOU
+
+
 How to install: 
 
 Create folder to store the unity game thingy.
