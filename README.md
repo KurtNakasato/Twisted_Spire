@@ -17,3 +17,5 @@ Set to path of unity game thingy folder and put this github clone url into where
 ---
 
 Open Unity Hub. Click Open existing project. Find the file. GG
+
+<img width="270" alt="image" src="https://github.com/KurtNakasato/Ranch_Games/assets/31753097/36650406-2e03-48b6-beb8-03c778959144">
