@@ -17,6 +17,11 @@ Click on Clone repository.
 
 Set to path of unity game thingy folder and put this github clone url into where it asks for it.
 
+That URL exists in the top of the git hub you silly goose 
+
+<img width="774" alt="image" src="https://github.com/KurtNakasato/Ranch_Games/assets/31753097/39945585-3198-4185-a6c5-03409eaae65f">
+
+
 ---
 
 Open Unity Hub. Click Open existing project. Find the file. GG
