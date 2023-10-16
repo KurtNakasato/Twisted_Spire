@@ -59,7 +59,12 @@ public class DefaultEnemyAI : MonoBehaviour
                 Debug.Log(targetPosition);
                 timer = UnityEngine.Random.Range(wonderingTargetLocationBufferMinVal, wonderingTargetLocationBufferMaxVal);
             }
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
+            Vector2 currentPos = new Vector2(transform.position.x, transform.position.y);
+
+            Vector2 direction = new Vector2 (targetPosition.x - currentPos.x, targetPosition.y - currentPos.y);
+            transform.up = direction;
+
         }
     }
     
