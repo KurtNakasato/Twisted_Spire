@@ -20,7 +20,7 @@ public class DefaultEnemyAI : MonoBehaviour
 
     private float threshold;
     private float timer;
-
+    private int currentHealth = 5; // Initial health value
     void Start()
     {
         startPosition = transform.position;
@@ -31,13 +31,18 @@ public class DefaultEnemyAI : MonoBehaviour
 
     void Update()
     {
+        if (currentHealth <= 0)
+        {
+            // Enemy is defeated, can add destroy or other logic here
+            return;
+        }
+
         currentState = "Wondering";
 
         if (currentState == "Wondering")
         {
             stateWondering();
         }
-
     }
 
     private Vector3 GetRandomPointOnCircle(Vector2 center, float radius)
@@ -46,6 +51,15 @@ public class DefaultEnemyAI : MonoBehaviour
         return center + new Vector2(randomPoint.x, randomPoint.y) * radius;
     }
 
+    public void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+
+        if (currentHealth <= 0)
+        {
+            // Enemy defeated, can add logic here (e.g., play death animation, drop items, etc.)
+        }
+    }
     private void stateWondering()
     {
         timer -= Time.deltaTime;
