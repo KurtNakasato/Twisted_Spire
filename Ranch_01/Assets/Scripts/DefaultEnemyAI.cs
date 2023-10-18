@@ -33,7 +33,7 @@ public class DefaultEnemyAI : MonoBehaviour
     {
         if (currentHealth <= 0)
         {
-            // Enemy is defeated, can add destroy or other logic here
+            Destroy(gameObject);
             return;
         }
 
@@ -57,7 +57,7 @@ public class DefaultEnemyAI : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            // Enemy defeated, can add logic here (e.g., play death animation, drop items, etc.)
+            Destroy(gameObject);
         }
     }
     private void stateWondering()

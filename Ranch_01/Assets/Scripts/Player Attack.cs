@@ -6,7 +6,7 @@ public class PlayerBasicAttack : MonoBehaviour
 {
     public float attackRange = 1.0f;
     public LayerMask enemyLayer;
-    public int attackDamage = 10;
+    public int attackDamage = 1;
 
     void Update()
     {
