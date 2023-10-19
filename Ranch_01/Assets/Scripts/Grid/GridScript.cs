@@ -21,7 +21,13 @@ public class Grid : MonoBehaviour
         gridSizeY = Mathf.RoundToInt(gridWorldSize.y / nodeDiameter);
         CreateGrid();
     }
-
+    public int MaxSize
+    {
+        get
+        {
+            return gridSizeX * gridSizeY;
+        }
+    }
     void CreateGrid()
     {
         //Create grid with the amount of nodes using amonut
@@ -42,6 +48,8 @@ public class Grid : MonoBehaviour
             }
         }
     }
+
+
     public List<Node> GetNeighbors(Node node)
     {
         List<Node> neighbors = new List<Node>();
@@ -50,7 +58,7 @@ public class Grid : MonoBehaviour
 
             for (int y = -1; y <= 1; y++)
             {
-                if (x == 0 || y == 0) continue;
+                if (x == 0 && y == 0) continue;
 
                 int checkX = node.gridX + x;
                 int checkY = node.gridY + y;
@@ -106,17 +114,19 @@ public class Grid : MonoBehaviour
 
 }
 
-public class Node
+public class Node : IHeapItem<Node>
 {
 
     public bool walkable;
     public Vector3 worldPosition;
     public int gridX;
     public int gridY;
+
     public Node parent;
 
     public int gCost;
     public int hCost;
+    int heapIndex;
     public Node(bool _walkable, Vector3 _worldPos, int gridX, int gridY)
     {
         this.walkable = _walkable;
@@ -130,4 +140,26 @@ public class Node
         get { return gCost + hCost; }
     }
 
+    public int HeapIndex
+    {
+        get
+        {
+            return heapIndex;
+        }
+        set
+        {
+            heapIndex = value;
+        }
+    }
+
+    public int CompareTo(Node nodetocompare)
+    {
+        int compare = fCost.CompareTo(nodetocompare.fCost);
+        if (compare == 0)
+        {
+            compare = hCost.CompareTo(nodetocompare.hCost); 
+
+        }
+        return -compare;
+    }
 }
