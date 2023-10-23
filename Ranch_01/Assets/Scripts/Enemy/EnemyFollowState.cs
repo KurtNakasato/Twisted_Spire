@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
-public class EnemyMovementAI : MonoBehaviour
+public class EnemyFollowState : MonoBehaviour
 {
     const float minPathUpdateTime = .2f;
     const float pathUpdateMoveThreshold = .5f;
@@ -13,7 +14,11 @@ public class EnemyMovementAI : MonoBehaviour
 
     void Start()
     {
+
+
         StartCoroutine(UpdatePath());
+
+
     }
 
     public void OnPathFound(Vector3[] newPath, bool pathSuccessful)
@@ -64,8 +69,10 @@ public class EnemyMovementAI : MonoBehaviour
             }
 
             transform.position = Vector3.MoveTowards(transform.position, currentWaypoint, speed * Time.deltaTime);
+            Vector2 currentPos = new Vector2(transform.position.x, transform.position.y);
+            Vector2 direction = new Vector2(currentWaypoint.x - currentPos.x, currentWaypoint.y - currentPos.y);
+            transform.up = direction;
             yield return null;
-
         }
     }
 

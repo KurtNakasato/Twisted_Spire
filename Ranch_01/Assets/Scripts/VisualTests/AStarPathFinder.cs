@@ -33,6 +33,7 @@ public class AStarPathFinder : MonoBehaviour
 
         if (startNode.walkable && targetNode.walkable)
         {
+
             Heap<Node> openSet = new Heap<Node>(grid.MaxSize);
             HashSet<Node> closedSet = new HashSet<Node>();
             openSet.Add(startNode);

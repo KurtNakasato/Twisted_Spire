@@ -18,8 +18,6 @@ public class FieldOfView : MonoBehaviour
 
     private void Start()
     {
-        viewRadius = 1f;
-        viewAngle = 1f;
         isPlayerVisible = false;
         playerPosition = null;
         StartCoroutine("FindTargetsWithDelay", .2f);
@@ -75,8 +73,8 @@ public class FieldOfView : MonoBehaviour
         Vector2 viewAngleA = DirFromAngle(-viewAngle / 2, false);
         Vector2 viewAngleB = DirFromAngle(viewAngle / 2, false);
 
-        Debug.Log("A" + viewAngleA);
-        Debug.Log("B" + viewAngleB);
+        //Debug.Log("A" + viewAngleA);
+        //Debug.Log("B" + viewAngleB);
 
         //Add direction + our current position and make direction * radius. Direction can only be 0-1, the radius is 1- something less than 1. so this makes sense.
         Gizmos.DrawLine(transform.position, new Vector2(transform.position.x,transform.position.y) + viewAngleA * viewRadius);
